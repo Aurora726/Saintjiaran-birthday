@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#09071c" />
+    <title>holyjiaran-birthday</title>
+    <link rel="stylesheet" href="./style.css?v=5" />
+  </head>
+  <body>
+    <main id="app" class="app state-journey">
+      <canvas id="street" aria-hidden="true"></canvas>
+      <div class="sky-glow" aria-hidden="true"></div>
+      <div class="sun" aria-hidden="true"><span></span></div>
+      <div class="skyline skyline-back" aria-hidden="true"></div>
+      <div class="skyline skyline-front" aria-hidden="true"></div>
+      <div class="stars" id="stars" aria-hidden="true"></div>
+      <div class="character-layer" id="characterLayer" aria-hidden="true"></div>
+      <div class="vortex" aria-hidden="true"><div class="vortex-core"></div></div>
+      <div class="grain" aria-hidden="true"></div>
+      <div class="scanlines" aria-hidden="true"></div>
+
+      <header class="topbar">
+        <button id="soundToggle" class="sound-toggle" type="button" aria-label="静音" aria-pressed="false">
+          <span class="sound-icon" aria-hidden="true">♫</span>
+          <span class="sound-word">声音开启</span>
+        </button>
+      </header>
+
+      <section class="video-scene" id="videoScene" aria-label="《红辣椒》视频场景">
+        <video id="paprikaVideo" src="./video/paprika.mp4" preload="auto" playsinline></video>
+        <button id="skipButton" class="video-button skip-button" type="button">跳过</button>
+        <button id="videoPlayButton" class="video-button play-button" type="button" hidden>播放视频</button>
+      </section>
+
+      <section class="game-scene" id="gameScene" aria-label="星光收集游戏">
+        <div class="game-room" aria-hidden="true"></div>
+        <div class="game-shade" aria-hidden="true"></div>
+        <svg class="light-trail" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          <path id="traceGlow"></path>
+          <path id="traceCore"></path>
+          <path id="trailGlow"></path>
+          <path id="trailCore"></path>
+        </svg>
+        <div class="collectibles" id="collectibles"></div>
+        <div class="star-meter" id="starMeter" aria-hidden="true"></div>
+        <button class="age-star" id="ageStar" type="button" aria-label="摘取第 25 岁的星星" hidden>
+          <svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 4 61 35 95 35 68 56 79 90 50 69 21 90 32 56 5 35 39 35Z" /></svg>
+        </button>
+        <div class="star-reveal" id="starReveal" hidden>25岁的星星</div>
+        <div class="particles" id="particles" aria-hidden="true"></div>
+      </section>
+
+      <section class="letter-scene" id="letterScene" aria-label="生日祝福信件">
+        <div class="letter-aura" aria-hidden="true"></div>
+        <div class="letter-envelope" aria-hidden="true">
+          <div class="letter-sheet"></div>
+          <div class="letter-back"></div>
+          <div class="letter-front"></div>
+          <div class="letter-seal">✦</div>
+        </div>
+        <div class="letter-reading" id="letterReading">
+          <div class="letter-reading-ornament" aria-hidden="true">✦</div>
+          <div class="letter-pages">
+            <article class="letter-page is-current" lang="ru" aria-label="俄文原诗">
+              <pre class="letter-poem letter-poem-ru">Всего хочу: с душой цыгана
+Идти под песни на разбой,
+За всех страдать под звук органа
+И амазонкой мчаться в бой;
+
+Гадать по звёздам в чёрной башне,
+Вести детей вперёд, сквозь тень…
+Чтоб был легендой — день вчерашний,
+Чтоб был безумьем — каждый день!</pre>
+            </article>
+            <article class="letter-page" lang="zh-CN" aria-label="中文译诗">
+              <pre class="letter-poem letter-poem-zh">我想要一切：带着吉普赛人的灵魂。
+伴着歌声去劫掠，
+在管风琴声中为众人受苦，
+像亚马逊女战士一样冲锋陷阵；
+
+在黑色高塔中凭星辰占卜，
+带领孩子们穿过阴影……
+愿昨日成为传奇，
+愿每一天都疯狂！</pre>
+            </article>
+            <article class="letter-page" lang="zh-CN" aria-label="生日祝福">
+              <p class="letter-blessing">祝愿圣嘉然接下来的一年，遇见更多值得感受的东西，并拥有更丰富的语言，来说出那些尚未命名的感受；在这一切当中，迎接更纯粹、更丰盈的生命，生日快乐！！！</p>
+            </article>
+          </div>
+          <div class="letter-controls">
+            <button id="letterPrev" class="letter-arrow" type="button" aria-label="上一页" disabled>‹</button>
+            <div class="letter-dots" id="letterDots" aria-hidden="true"><i class="is-current"></i><i></i><i></i></div>
+            <button id="letterNext" class="letter-arrow" type="button" aria-label="下一页">›</button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <audio id="cityAudio" src="./audio/city-pop.mp3" preload="auto" loop></audio>
+    <audio id="adventureAudio" src="./audio/adventure.mp3" preload="auto" loop></audio>
+    <audio id="birthdayAudio" src="./audio/birthday-soft.mp3" preload="auto" loop></audio>
+    <script src="./script.js?v=7" defer></script>
+  </body>
+</html>
